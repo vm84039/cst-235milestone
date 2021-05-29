@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">  
+
+<h:head><h:outputStylesheet name = "css/styles.css"  /></h:head> 
+<body>
+	<ui:composition>  
+<h:form>
+    		
+    	<table>
+      <tr>
+        <td>First Name:</td>
+        <td>
+          <h:inputText label="First Name"
+                       id="fname" value="#{user.firstName}"
+                       required="true"/>
+        </td>
+        <td><h:message for="fname" style="color: red"/></td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td>
+          <h:inputText  label="Last Name"
+                       id="lname" value="#{user.lastName}"
+                       required="true"/>          
+        </td>
+        <td><h:message for="lname" style="color: red"/></td>
+        </tr>
+      <tr>
+        <td>DOB:</td>
+       
+        <td>Year:  
+          <h:inputText label="Year" size="4"
+                       id="year" value="#{user.year}"
+                       required="true"/></td>
+                  
+                       <td><h:message for="year" style="color: red"/></td>
+        </tr>
+        <tr>              
+         <td></td><td>Month&nbsp;   
+          <h:inputText label="Month" size="2"
+                       id="month" value="#{user.month}"
+                       required="true"/></td>
+                      <td> <h:message for="month" style="color: red"/>
+        	</td>
+        </tr>
+        <tr>
+        <td> </td><td>Day&nbsp;
+          <h:inputText label="Day" size="2"
+                       id="day" value="#{user.day}"
+                       required="true"/></td>
+                       <td> <h:message for="day" style="color: red"/>
+        	</td>
+      </tr>
+       <tr>
+        <td>Email Address:</td>
+        <td>
+          <h:inputText label="Email Adress"
+                       id="email" value="#{user.emailAddress}"
+                       required="true"/>
+        </td>
+        <td><h:message for="email" style="color: red"/></td>
+      </tr>      
+        <tr>
+        <td>Password:</td>
+        <td>
+          <h:inputText label="Password"
+                       id="password" value="#{user.password}"
+                       required="true"/>
+        </td>
+        <td><h:message for="password" style="color: red"/></td>        
+      	</tr>
+	
+      		</table>
+      		<h:commandButton id="submit" value="Submit" action="#{formController.registrationSubmit(user)}"></h:commandButton>
+      		</h:form>
+		<br />
+	</ui:composition>  
+</body>
+</html>

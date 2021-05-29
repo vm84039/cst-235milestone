@@ -9,6 +9,9 @@
 }
 #footer
 {
+   position:fixed;
+   left: 0;
+   bottom: 0;
   color: #2F4F4F;
   text-align: center;
   font-family: Syncopate;

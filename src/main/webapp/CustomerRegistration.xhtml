@@ -23,72 +23,12 @@
       	     	<ui:include src = "/WEB-INF/templates/menubar.xhtml" />
    			</ui:insert>
         </h:panelGroup>
-		<h:form>
-    		<h2>Customer Registration</h2>
-    	<table>
-      <tr>
-        <td>First Name:</td>
-        <td>
-          <h:inputText label="First Name"
-                       id="fname" value="#{user.firstName}"
-                       required="true"/>
-                       <h:message for="fname" style="color: red"/>
-        </td>
-      </tr>
-            <tr>
-        <td>Last Name:</td>
-        <td>
-          <h:inputText  label="Last Name"
-                       id="lname" value="#{user.lastName}"
-                       required="true"/>
-                       <h:message for="lname" style="color: red"/>
-        </td>
-      </tr>
-      <tr>
-        <td>DOB:</td>
-       
-        <td>Year   
-          <h:inputText label="Year" size="4"
-                       id="year" value="#{user.year}"
-                       required="true"/>
-                       <h:message for="lname" style="color: red"/>
-           Month</td>
-        <td>
-          <h:inputText label="Month" size="2"
-                       id="month" value="#{user.month}"
-                       required="true"/>
-                       <h:message for="month" style="color: red"/>
-        </td>
-        <td>Day </td>
-        <td>
-          <h:inputText label="Day" size="2"
-                       id="day" value="#{user.day}"
-                       required="true"/>
-                       <h:message for="day" style="color: red"/>
-        </td>
-      </tr>
-       <tr>
-        <td>Email Address:</td>
-        <td>
-          <h:inputText label="Email Adress"
-                       id="email" value="#{user.emailAddress}"
-                       required="true"/>
-                       <h:message for="email" style="color: red"/>
-        </td>
-      </tr>
-      
-        <tr>
-        <td>Password:</td>
-        <td>
-          <h:inputText label="Password"
-                       id="password" value="#{user.password}"
-                       required="true"/>
-                       <h:message for="password" style="color: red"/>
-        </td>
-      	</tr>  		
-      		</table>
-      		<h:commandButton id="submit" value="Submit" action="#{formController.registrationSubmit(user)}"></h:commandButton>
-      		</h:form>
+        <h2>Customer Registration</h2>
+		<h:panelGroup id="registration" layout="block">
+	      	<ui:insert name = "registration" >
+            	<ui:include src = "/WEB-INF/templates/registration.xhtml" />
+         	</ui:insert>
+         </h:panelGroup>
 
     	<h:panelGroup id="footer" layout="block">
 	      	<ui:insert name = "footer" >
