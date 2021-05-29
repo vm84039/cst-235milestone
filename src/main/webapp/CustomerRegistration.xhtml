@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+   		
+<h:head>
+	<title><ui:insert name="title">Customer Registration</ui:insert></title>
+		<h:outputStylesheet name="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Syncopate" />  
+</h:head>
+<h:body>
+
+    <h:panelGroup id="page" layout="block">
+    	<h:panelGroup id="header" layout="block">
+    		<ui:insert name = "header" >
+      	     	<ui:include src = "/WEB-INF/templates/header.xhtml" />
+   			</ui:insert>
+        </h:panelGroup>
+        <h:panelGroup id="menubar" layout="block">
+    		<ui:insert name = "menubar" >
+      	     	<ui:include src = "/WEB-INF/templates/menubar.xhtml" />
+   			</ui:insert>
+        </h:panelGroup>
+		<h:form>
+    		<h2>Customer Registration</h2>
+    	<table>
+      <tr>
+        <td>First Name:</td>
+        <td>
+          <h:inputText label="First Name"
+                       id="fname" value="#{user.firstName}"
+                       required="true"/>
+                       <h:message for="fname" style="color: red"/>
+        </td>
+      </tr>
+            <tr>
+        <td>Last Name:</td>
+        <td>
+          <h:inputText label="Last Name"
+                       id="lname" value="#{user.lastName}"
+                       required="true"/>
+                       <h:message for="lname" style="color: red"/>
+        </td>
+      </tr>
+      <tr>
+        <td>DOB:</td>
+        <td>
+          <h:inputText label="Year"
+                       id="year" value="#{user.year}"
+                       required="true"/>
+                       <h:message for="lname" style="color: red"/>
+        </td>
+        <td>
+          <h:inputText label="Month"
+                       id="month" value="#{user.month}"
+                       required="true"/>
+                       <h:message for="month" style="color: red"/>
+        </td>
+        <td>
+          <h:inputText label="Day"
+                       id="day" value="#{user.day}"
+                       required="true"/>
+                       <h:message for="day" style="color: red"/>
+        </td>
+      </tr>
+       <tr>
+        <td>Email Address:</td>
+        <td>
+          <h:inputText label="Email Adress"
+                       id="email" value="#{user.emailAddress}"
+                       required="true"/>
+                       <h:message for="email" style="color: red"/>
+        </td>
+      </tr>
+      
+        <tr>
+        <td>Password:</td>
+        <td>
+          <h:inputText label="Password"
+                       id="password" value="#{user.password}"
+                       required="true"/>
+                       <h:message for="password" style="color: red"/>
+        </td>
+      	</tr>  		
+      		</table>
+      		<p><h:commandButton value="Register" action = "registrationSuccess.xhtml" /></p>
+      		</h:form>
+
+    	<h:panelGroup id="footer" layout="block">
+	      	<ui:insert name = "footer" >
+            	<ui:include src = "/WEB-INF/templates/footer.xhtml" />
+         	</ui:insert>
+         </h:panelGroup>
+	</h:panelGroup>
+</h:body>
+		
+</html>

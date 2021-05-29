@@ -1,0 +1,33 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Old School Movie Rental-Rgistration</title>
+	<h:outputStylesheet name="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Syncopate" />  
+</h:head>
+
+<h:body>
+    <h:panelGroup id="page" layout="block">
+    	<h:panelGroup id="header" layout="block">
+    		<ui:insert name = "header" >
+      	     	<ui:include src = "/WEB-INF/templates/header.xhtml" />
+   			</ui:insert>
+        </h:panelGroup>
+        <h:panelGroup id="menubar" layout="block">
+    		<ui:insert name = "menubar" >
+      	     	<ui:include src = "/WEB-INF/templates/menubar.xhtml" />
+   			</ui:insert>
+        </h:panelGroup>
+		<p>Welcome "#{user.firstName} "#{user.lastName}" your Username is "#{user.emailAddress}"  </p>
+    	<h:panelGroup id="footer" layout="block">
+	      	<ui:insert name = "footer" >
+            	<ui:include src = "/WEB-INF/templates/footer.xhtml" />
+         	</ui:insert>
+         </h:panelGroup>
+	</h:panelGroup>
+</h:body>
+</html>
