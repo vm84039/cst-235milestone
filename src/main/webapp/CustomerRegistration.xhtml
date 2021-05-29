@@ -38,7 +38,7 @@
             <tr>
         <td>Last Name:</td>
         <td>
-          <h:inputText label="Last Name"
+          <h:inputText  label="Last Name"
                        id="lname" value="#{user.lastName}"
                        required="true"/>
                        <h:message for="lname" style="color: red"/>
@@ -46,20 +46,22 @@
       </tr>
       <tr>
         <td>DOB:</td>
-        <td>
-          <h:inputText label="Year"
+       
+        <td>Year   
+          <h:inputText label="Year" size="4"
                        id="year" value="#{user.year}"
                        required="true"/>
                        <h:message for="lname" style="color: red"/>
-        </td>
+           Month</td>
         <td>
-          <h:inputText label="Month"
+          <h:inputText label="Month" size="2"
                        id="month" value="#{user.month}"
                        required="true"/>
                        <h:message for="month" style="color: red"/>
         </td>
+        <td>Day </td>
         <td>
-          <h:inputText label="Day"
+          <h:inputText label="Day" size="2"
                        id="day" value="#{user.day}"
                        required="true"/>
                        <h:message for="day" style="color: red"/>
