@@ -46,4 +46,9 @@ ul#list-nav li a {
  color:#eee;
  float:left;
 }
+p
+{
+	text-align: center;
+	font-weight: bold;
+}
 

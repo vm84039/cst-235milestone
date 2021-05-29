@@ -17,7 +17,7 @@
 			Password:<h:inputText value="#{user.password}"/>
 					<br></br>
 					<br></br>
-			<h:commandButton id="submit" value="Submit" action="CustomerLoginSuccess.xhtml"></h:commandButton>
+			<h:commandButton id="submit" value="Submit" action="#{formController.Authenticate(user)}"></h:commandButton>
 		   </h:form>
       </ui:composition>	
 </h:body> 
