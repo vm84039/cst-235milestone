@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+
+h2
+{
+	text-align:center;
+	color:#2F4F4F;
+}
+
+.movie-table{   
+    border-collapse:collapse;
+}
+
+.movie-table-header{
+    text-align:center;
+    background:none repeat scroll 0 0 #20a88d;
+    border-bottom:1px solid #BBBBBB;
+    padding:16px;
+}
+
+.movie-table-odd-row{
+    text-align:center;
+    background:none repeat scroll 0 0 #e0fff9;
+    border-top:1px solid #BBBBBB;
+}
+
+.movie-table-even-row{
+    text-align:center;
+    background:none repeat scroll 0 0 #99bab3;
+    border-top:1px solid #BBBBBB;
+}

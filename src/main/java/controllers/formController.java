@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import beans.MovieBean;
 import beans.User;
 
 @ManagedBean
@@ -26,6 +27,22 @@ public class formController {
 		user = context.getApplication().evaluateExpressionGet(context, "#{user}", User.class);
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
 		return "CustomerLoginSuccess.xhtml";
+	}
+	public String AddMovie(MovieBean movies) 
+	{
+		FacesContext context = FacesContext.getCurrentInstance();
+		//put the movies object into the POST request
+		movies = context.getApplication().evaluateExpressionGet(context, "#{movies}", MovieBean.class);
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("movies", movies);
+		return "MovieDatabase.xhtml";
+	}
+	public String EditMovie(MovieBean movies) 
+	{
+		FacesContext context = FacesContext.getCurrentInstance();
+		//put the movies object into the POST request
+		movies = context.getApplication().evaluateExpressionGet(context, "#{movies}", MovieBean.class);
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("movies", movies);
+		return "MovieDatabase.xhtml";
 	}
 	
 	

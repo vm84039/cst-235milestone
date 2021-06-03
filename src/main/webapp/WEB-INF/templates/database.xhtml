@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Movie Inventory</title>
+	<h:outputStylesheet library="css" name="table-style.css"  />
+
+</h:head>
+
+<h:body>
+
+	<h2>Movie Inventory<br></br></h2>
+	
+<h:dataTable value = "#{movie.movies}" var = "o"
+    			styleClass = "movie-table"
+    			headerClass = "movie-table-header"
+    			rowClasses = "movie-table-odd-row,movie-table-even-row">
+   
+   <h:column>    				
+      <f:facet name = "header">Movie Title</f:facet>    				
+      #{o.title}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Release Year</f:facet>
+      #{o.year}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Movie Genre</f:facet>
+      #{o.genre}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Lead Actor</f:facet>
+      #{o.lead}
+   </h:column>
+      <h:column>    				
+      <f:facet name = "header">Production Studio</f:facet>    				
+      #{o.studio}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Director</f:facet>
+      #{o.director}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Run Time (in minutes)</f:facet>
+      #{o.length}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Rental Cost</f:facet>
+      <h:outputText value =	"#{o.rental}">
+      <f:convertNumber currencySymbol="$" type="currency"/> 
+      </h:outputText>
+   </h:column>
+   <h:column>
+      <f:facet name = "header">Production Cost</f:facet>
+      <h:outputText value =	"#{o.cost}">
+      <f:convertNumber currencySymbol="$" type="currency"/> 
+      </h:outputText>
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Box Office Revenue</f:facet> 
+      <h:outputText value =	"#{o.revenue}">
+      <f:convertNumber currencySymbol="$" type="currency"/> 
+      </h:outputText>
+   </h:column>   
+</h:dataTable>
+<br /><br />
+	<h:commandButton id="add" value="Add Movie" action="#{formController.AddMovie(movies)}"></h:commandButton>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<h:commandButton id="edit" value="Edit Movie" action="#{formController.EditMovie(movies)}"></h:commandButton>
+</h:body>
+</html> 
