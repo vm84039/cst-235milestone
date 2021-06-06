@@ -13,7 +13,7 @@
 
 	<h2>Movie Inventory<br></br></h2>
 	
-<h:dataTable value = "#{movie.movies}" var = "o"
+<h:dataTable value = "#{formController.movieService.movies}" var = "o"
     			styleClass = "movie-table"
     			headerClass = "movie-table-header"
     			rowClasses = "movie-table-odd-row,movie-table-even-row">
@@ -60,20 +60,20 @@
    </h:column>
    <h:column>
       <f:facet name = "header">Production Cost</f:facet>
-      <h:outputText value =	"#{o.cost}">
+      <h:outputText value =	"#{o.intCost}">
       <f:convertNumber currencySymbol="$" type="currency"/> 
       </h:outputText>
    </h:column>
    
    <h:column>
       <f:facet name = "header">Box Office Revenue</f:facet> 
-      <h:outputText value =	"#{o.revenue}">
+      <h:outputText value =	"#{o.intRevenue}">
       <f:convertNumber currencySymbol="$" type="currency"/> 
       </h:outputText>
    </h:column>   
 </h:dataTable>
 <br /><br />
-	<h:commandButton id="add" value="Add Movie" action="#{formController.AddMovie(movies)}"></h:commandButton>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<h:button value="Add Movie" outcome ="AddMovie"></h:button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<h:commandButton id="edit" value="Edit Movie" action="#{formController.EditMovie(movies)}"></h:commandButton>
 </h:body>
 </html> 

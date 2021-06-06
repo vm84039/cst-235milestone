@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="beans.User" project="cst-235milestone" 
     file="/cst-235milestone/src/main/java/beans/User.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="492" width="301" x="97" y="27"/>    
+    <position height="492" width="301" x="8" y="-86"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,13 +12,95 @@
   </class>  
   <class id="2" language="java" name="controllers.formController" project="cst-235milestone" 
     file="/cst-235milestone/src/main/java/controllers/formController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="167" width="249" x="476" y="27"/>    
+    <position height="262" width="302" x="673" y="-84"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
+  <class id="3" language="java" name="beans.MovieBean" project="cst-235milestone" 
+    file="/cst-235milestone/src/main/java/beans/MovieBean.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="262" width="300" x="8" y="418"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="beans.MovieInfo" project="cst-235milestone" 
+    file="/cst-235milestone/src/main/java/beans/MovieInfo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="489" y="297"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="business.LoginService" project="cst-235milestone" 
+    file="/cst-235milestone/src/main/java/business/LoginService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="304" x="677" y="542"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="6" language="java" name="business.LoginServiceInterface" project="cst-235milestone" 
+    file="/cst-235milestone/src/main/java/business/LoginServiceInterface.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="303" x="675" y="441"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="7" language="java" name="business.MovieDatabaseService" project="cst-235milestone" 
+    file="/cst-235milestone/src/main/java/business/MovieDatabaseService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="148" width="305" x="674" y="290"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="8" language="java" name="business.MovieDatabaseServiceInterface" project="cst-235milestone" 
+    file="/cst-235milestone/src/main/java/business/MovieDatabaseServiceInterface.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="104" width="303" x="675" y="184"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="9" language="java" name="business.RegistrationService" project="cst-235milestone" 
+    file="/cst-235milestone/src/main/java/business/RegistrationService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1093" y="97"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="10" language="java" name="business.RegistrationServiceInterface" project="cst-235milestone" 
+    file="/cst-235milestone/src/main/java/business/RegistrationServiceInterface.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="221" x="982" y="-84"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <realization id="11">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="12">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

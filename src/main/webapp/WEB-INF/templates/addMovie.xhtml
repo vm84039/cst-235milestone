@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">  
+
+<h:head></h:head> 
+<body>
+	<ui:composition>  
+<h:form>
+    		
+    	<table>
+      <tr>
+        <td>Title:</td>
+        <td>
+          <h:inputText label="Title"
+                       id="title" value="#{movieInfo.title}"
+                       required="true"/>
+        </td>
+        <td><h:message for="title" style="color: red"/></td>
+      </tr>
+        <tr>
+        <td>Year:</td>
+        <td>
+          <h:inputText label="Year"
+                       id="year" value="#{movieInfo.year}"
+                       required="true">
+                       <f:convertNumber integerOnly="true" type="number"/></h:inputText>
+        </td>
+        <td><h:message for="year" style="color: red"/></td>
+      </tr>
+      <tr>
+        <td>Genre:</td>
+        <td>
+          <h:inputText label="Genre"
+                       id="genre" value="#{movieInfo.genre}"
+                       required="false"/>
+        </td>
+        <td><h:message for="genre" style="color: red"/></td>
+      </tr>
+      <tr>
+        <td>Lead:</td>
+        <td>
+          <h:inputText label="Lead"
+                       id="lead" value="#{movieInfo.lead}"
+                       required="true"/>
+        </td>
+        <td><h:message for="lead" style="color: red"/></td>
+      </tr>
+      <tr>
+        <td>Studio:</td>
+        <td>
+          <h:inputText label="Studio"
+                       id="studio" value="#{movieInfo.studio}"
+                       required="false"/>
+        </td>
+        <td><h:message for="studio" style="color: red"/></td>
+      </tr>
+      <tr>
+        <td>Director:</td>
+        <td>
+          <h:inputText label="Director"
+                       id="director" value="#{movieInfo.director}"
+                       required="false"/>
+        </td>
+        <td><h:message for="director" style="color: red"/></td>
+      </tr>
+      <tr>
+        <td>Length:</td>
+        <td>
+          <h:inputText label="Length"
+                       id="length" value="#{movieInfo.length}"
+                       required="true">
+                       <f:convertNumber integerOnly="true" type="number"/></h:inputText>
+        </td>
+        <td><h:message for="length" style="color: red"/></td>
+      </tr>
+      <tr>
+        <td>Rental:</td>
+        <td>
+          <h:inputText label="Rental"
+                       id="rental" value="#{movieInfo.rental}"
+                       required="true"/>
+        </td>
+        <td><h:message for="rental" style="color: red"/></td>
+      </tr>
+      <tr>
+        <td>Cost:</td>
+        <td>
+          <h:inputText label="Cost"
+                       id="cost" value="#{movieInfo.cost}"
+                       required="true" />
+        </td>
+        <td><h:message for="cost" style="color: red"/></td>
+      </tr>
+      <tr>
+        <td>Revenue:</td>
+        <td>
+          <h:inputText label="Revenue"
+                       id="revenue" value="#{movieInfo.revenue}"
+                       required="true" />
+        </td>
+        <td><h:message for="revenue" style="color: red"/></td>
+      </tr>
+	
+      		</table>
+      		<h:commandButton id="submit" value="Submit" action="#{formController.addMovieSubmit(movieInfo)}"></h:commandButton>
+      		</h:form>
+		<br />
+	</ui:composition>  
+</body>
+</html>

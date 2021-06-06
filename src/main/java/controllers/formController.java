@@ -3,15 +3,25 @@ package controllers;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
-import beans.MovieBean;
+import beans.MovieInfo;
 import beans.User;
+import business.LoginServiceInterface;
+import business.MovieDatabaseServiceInterface;
+import business.RegistrationServiceInterface;
+
 
 @ManagedBean
 @ViewScoped
 
 public class formController {
-	
+	@Inject
+	LoginServiceInterface login;
+	@Inject
+	RegistrationServiceInterface register;
+	@Inject
+	MovieDatabaseServiceInterface movieService;
 	public String registrationSubmit(User user) 
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -28,22 +38,37 @@ public class formController {
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
 		return "CustomerLoginSuccess.xhtml";
 	}
-	public String AddMovie(MovieBean movies) 
+	public String addMovieSubmit(MovieInfo movies) 
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
 		//put the movies object into the POST request
-		movies = context.getApplication().evaluateExpressionGet(context, "#{movies}", MovieBean.class);
+		movies = context.getApplication().evaluateExpressionGet(context, "#{movies}", MovieInfo.class);
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("movies", movies);
-		return "MovieDatabase.xhtml";
+		return "MovieCreated.xhtml";
 	}
-	public String EditMovie(MovieBean movies) 
+	public String EditMovie(MovieInfo movies) 
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
 		//put the movies object into the POST request
-		movies = context.getApplication().evaluateExpressionGet(context, "#{movies}", MovieBean.class);
+		movies = context.getApplication().evaluateExpressionGet(context, "#{movies}", MovieInfo.class);
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("movies", movies);
 		return "MovieDatabase.xhtml";
 	}
+	public LoginServiceInterface getUser()
+	{
+		return login;
+	}
+	public RegistrationServiceInterface getUsers()
+	{
+		return register;
+	}
+	public MovieDatabaseServiceInterface getMovieService()
+	{
+		return movieService;
+	}
+	
+	
+
 	
 	
 
