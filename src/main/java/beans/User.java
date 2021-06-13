@@ -12,9 +12,9 @@ import org.hibernate.validator.constraints.Email;
 @ManagedBean
 @ViewScoped 
 public class User {
-	@NotNull() @Size(min=5, max=15)
+	@NotNull() @Size(min=2, max=15)
 	private String firstName;
-	@NotNull() @Size(min=5, max=15)
+	@NotNull() @Size(min=2, max=15)
 	private String lastName;
 	@NotNull() @Min(1) @Max(12)
 	private int month;
@@ -24,19 +24,27 @@ public class User {
 	private int year;
 	@NotNull() @Email @Size(min=5, max=35)
 	private String emailAddress;
-	@NotNull() @Size(min=5, max=15)
+	@NotNull() @Size(min=2, max=35)
 	private String password;
+	private int userId;
 	
 
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public User()
 	{
-        this.firstName = "";
-        this.lastName = "";
-        this.emailAddress = "";
-        this.password = "";
+        this.firstName = "test";
+        this.lastName = "test";
+        this.emailAddress = "test@aol.com";
+        this.password = "test";
         this.year = 1990;
         this.month = 1;
         this.day = 1;
+        this.userId = 0;
 	}
 	public User(String firstName, String lastName) {
 		this.firstName = firstName;

@@ -19,6 +19,10 @@
     			rowClasses = "movie-table-odd-row,movie-table-even-row">
    
    <h:column>    				
+      <f:facet name = "header">Movie ID</f:facet>    				
+      #{o.movieID}
+   </h:column>
+   <h:column>    				
       <f:facet name = "header">Movie Title</f:facet>    				
       #{o.title}
    </h:column>
@@ -60,20 +64,20 @@
    </h:column>
    <h:column>
       <f:facet name = "header">Production Cost</f:facet>
-      <h:outputText value =	"#{o.intCost}">
+      <h:outputText value =	"$#{o.cost}">
       <f:convertNumber currencySymbol="$" type="currency"/> 
       </h:outputText>
    </h:column>
    
    <h:column>
       <f:facet name = "header">Box Office Revenue</f:facet> 
-      <h:outputText value =	"#{o.intRevenue}">
+      <h:outputText value =	"$ #{o.revenue}">
       <f:convertNumber currencySymbol="$" type="currency"/> 
       </h:outputText>
    </h:column>   
 </h:dataTable>
 <br /><br />
 	<h:button value="Add Movie" outcome ="AddMovie"></h:button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<h:commandButton id="edit" value="Edit Movie" action="#{formController.EditMovie(movies)}"></h:commandButton>
+	<h:button value="Edit Movie" outcome ="EditMovie"></h:button>
 </h:body>
 </html> 

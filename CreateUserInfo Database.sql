@@ -1,0 +1,15 @@
+CREATE DATABASE  IF NOT EXISTS `UserInfo`;
+USE `UserInfo`;
+
+DROP TABLE IF EXISTS `Users`;
+CREATE TABLE `Users` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+   `FIRST_NAME` varchar(30) NOT NULL, 
+   `LAST_NAME` varchar(30) NOT NULL, 
+   `BMONTH` int(2) NOT NULL, 
+   `BDAY` int(2) NOT NULL, 
+   `BYEAR` int(4) NOT NULL,
+   `EMAIL` varchar(30) NOT NULL, 
+   `UPASSWORD` varchar(30) NOT NULL, 
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;

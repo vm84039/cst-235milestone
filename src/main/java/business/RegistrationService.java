@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import beans.User;
+import data.UserDataService;
 
 /* Session Bean implementation class RegistrationService
 */
@@ -19,8 +20,9 @@ import beans.User;
 public class RegistrationService implements RegistrationServiceInterface {
 	
 	List<User> users = new ArrayList<User>();
-	@Inject
-	RegistrationServiceInterface registration;
+	UserDataService service = new UserDataService();
+	
+	public RegistrationService() {}
 
 	@Override
 	public List<User> getUsers() {
@@ -31,6 +33,11 @@ public class RegistrationService implements RegistrationServiceInterface {
 	@Override
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	@Override
+	public void addUser(User user) {
+		service.insert(user);	
 	}
 	
 }

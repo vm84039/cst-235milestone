@@ -12,4 +12,5 @@ public interface MovieDatabaseServiceInterface {
 
 	public List<MovieInfo> getMovies();
 	public void setMovies (List<MovieInfo> movies); 
+	public void addMovies(MovieInfo movies);
 }

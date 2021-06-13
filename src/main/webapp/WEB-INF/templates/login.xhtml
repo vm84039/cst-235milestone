@@ -11,13 +11,13 @@
       <ui:composition> 
          <h:form>
 					<br></br>
-			Username:<h:inputText id= "email" value="#{user.emailAddress}"/> &nbsp;<h:message for="email" style="color: red"/>
+			Username:<h:inputText id= "email" value="#{log.emailAddress}"/> &nbsp;<h:message for="email" style="color: red"/>
 					<br></br>
 					<br></br>
-			Password:<h:inputText id = "password" value="#{user.password}"/> &nbsp;<h:message for="password" style="color: red"/>
+			Password:<h:inputText id = "password" value="#{log.password}"/> &nbsp;<h:message for="password" style="color: red"/>
 					<br></br>
 					<br></br>
-			<h:commandButton id="submit" value="Submit" action="#{formController.Authenticate(user)}"></h:commandButton>
+			<h:commandButton id="submit" value="Submit" action="#{formController.Authenticate(log)}"></h:commandButton>
 		   </h:form>
       </ui:composition>	
 </h:body> 

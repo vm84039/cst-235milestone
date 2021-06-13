@@ -15,10 +15,8 @@ public class MovieInfo {
 	
 	@NotNull() @Size(min=1, max=30)
 	private String title;
-	
 	@NotNull() @Min(1900) @Max(2021)
 	private int year; 
-	
 	private String genre; 
 	@NotNull() @Size(min=2, max=40)
 	private String lead; 
@@ -31,8 +29,17 @@ public class MovieInfo {
 	private String cost;
 	private String revenue;
 	private BigInteger intCost;
-	private BigInteger intRevenue; 
+	private BigInteger intRevenue;
+	private int movieID;
 	
+	public int getMovieID() {
+		return movieID;
+	}
+
+	public void setMovieID(int movieID) {
+		this.movieID = movieID;
+	}
+
 	public BigInteger getIntCost() {
 		return intCost;
 	}
