@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
-	<title>Old School Movie Rental-Rgistration</title>
+	<title>Old School Movie Rental-Add a movie</title>
 	<h:outputStylesheet name="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Syncopate" />  
 </h:head>
@@ -23,6 +23,75 @@
    			</ui:insert>
         </h:panelGroup>
 		<br /><br /><br /><h2>You added a new movie to the database </h2> 
+		<h:dataTable value = "#{formController.movieService.movies}" var = "o"
+	    			styleClass = "movie-table"
+	    			headerClass = "movie-table-header"
+	    			rowClasses = "movie-table-odd-row,movie-table-even-row">
+		   <h:column>    				
+		      <f:facet name = "header">Movie ID</f:facet>    				
+		      #{o.movieID}
+		   </h:column>
+		   <h:column>    				
+		      <f:facet name = "header">Movie Title</f:facet>    				
+		      #{o.title}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Release Year</f:facet>
+		      #{o.year}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Movie Genre</f:facet>
+		      #{o.genre}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Lead Actor</f:facet>
+		      #{o.lead}
+		   </h:column>
+		      <h:column>    				
+		      <f:facet name = "header">Production Studio</f:facet>    				
+		      #{o.studio}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Director</f:facet>
+		      #{o.director}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Run Time (in minutes)</f:facet>
+		      #{o.length}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Rental Cost</f:facet>
+		      <h:outputText value =	"#{o.rental}">
+		      <f:convertNumber currencySymbol="$" type="currency"/> 
+		      </h:outputText>
+		   </h:column>
+		   <h:column>
+		      <f:facet name = "header">Production Cost</f:facet>
+		      <h:outputText value =	"$#{o.cost}">
+		      <f:convertNumber currencySymbol="$" type="currency"/> 
+		      </h:outputText>
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Box Office Revenue</f:facet> 
+		      <h:outputText value =	"$ #{o.revenue}">
+		      <f:convertNumber currencySymbol="$" type="currency"/> 
+		      </h:outputText>
+		   </h:column>   
+		   <h:column>
+		   		<h:commandButton value="Edit" action ="#{formController.editMovie(movie)}"></h:commandButton>
+		   </h:column>
+		   <h:column>
+		   		<h:commandButton value="Delete" action ="#{formController.deleteMovie(movie)}"></h:commandButton>
+		   </h:column>
+	</h:dataTable>
+	<h:button value="Add Movie" outcome ="AddMovie"></h:button>	
     	<h:panelGroup id="footer" layout="block">
 	      	<ui:insert name = "footer" >
             	<ui:include src = "/WEB-INF/templates/footer.xhtml" />

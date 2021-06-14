@@ -1,16 +1,12 @@
 package business;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Alternative;
-
-import beans.MovieInfo;
+import beans.Movies;
 import data.MovieDataService;
 
 /* Session Bean implementation class RegistrationService
@@ -18,36 +14,47 @@ import data.MovieDataService;
 @Stateless
 @Local(MovieDatabaseServiceInterface.class)
 @LocalBean
-@Alternative
+
 public class MovieDatabaseService implements MovieDatabaseServiceInterface {
 	
-	List<MovieInfo> movies = new ArrayList<MovieInfo>();
+	List<Movies> movies = new ArrayList<Movies>();
 	MovieDataService service = new MovieDataService();
+	Movies movie = new Movies();
 
-    public MovieDatabaseService() {
-    	
-    	
-    }
+    public MovieDatabaseService() {    }
     		
 	@Override
-	public void setMovies(List<MovieInfo> movies) {
+	public void setMovies(List<Movies> movies) {
 		this.movies = movies;	
 	}
 
 	@Override
-	public List<MovieInfo> getMovies() {
+	public List<Movies> getMovies() {
 		// TODO Auto-generated method stub
 		movies = service.findAll();
-		System.out.println(Arrays.toString(movies.toArray()));
 		return movies;
 	}
 
 	@Override
-	public void addMovies(MovieInfo movies) {
+	public void addMovies(Movies movies) {
 		service.insert(movies);
-		
 	}
-	
+	@Override
+	public void editMovies(Movies movies, int find) {
+		service.editSelect(movies, find);
+	}
+
+	@Override
+	public Movies findSelect(int find) {
+		movie = service.findSelect(find);
+		return movie;
+
+	}
+
+	@Override
+	public void delete(int find) {
+		service.deleteSelect(find);	
+	}
 
 
 

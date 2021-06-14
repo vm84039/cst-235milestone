@@ -20,7 +20,7 @@ private static final long serialVersionUID = 1L;
 
     public List<User> getMovies() 
     {
-    	users = new ArrayList<>();
+    	users = new ArrayList<User>();
 		return users;
     };
     

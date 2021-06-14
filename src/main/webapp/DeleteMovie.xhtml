@@ -22,14 +22,14 @@
       	     	<ui:include src = "/WEB-INF/templates/menubar.xhtml" />
    			</ui:insert>
         </h:panelGroup>
-        <h2>Edit a Movie- You must have the Movie Id to edit a Movie</h2>
+        <h2>Delete a Movie- You must have the Movie Id to edit a Movie</h2>
       <ui:composition> 
          <h:form>
 					<br></br>
 			MovieID:<h:inputText id= "id" value="#{edit.ID}"/> 
 					<br></br>
 					<br></br>
-			<h:commandButton id="submit" value="Submit" action="#{formController.editMovie(edit)}"></h:commandButton>
+			<h:commandButton id="submit" value="Submit" action="#{formController.deleteMovie(edit)}"></h:commandButton>
 		   </h:form>
       </ui:composition>	
          </h:panelGroup>

@@ -2,12 +2,13 @@ package data;
 
 import java.util.List;
 import javax.ejb.Stateless;
-import beans.MovieInfo;
+import beans.Movies;
 
 @Stateless
 public interface MovieAccessInterface {
-	public List<MovieInfo> findAll();
-	public MovieInfo findSelect(String column, String value);
-	public void insert(MovieInfo movies);
-	public void delete(String condition, String value);
+	public List<Movies> findAll();
+	public void editSelect(Movies movies, int find);
+	public void insert(Movies movies);
+	public void deleteSelect(int find);
+	public Movies findSelect(int find);
 }

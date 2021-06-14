@@ -4,13 +4,16 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import beans.MovieInfo;
+import beans.Movies;
 
 
 @Local
 public interface MovieDatabaseServiceInterface {
 
-	public List<MovieInfo> getMovies();
-	public void setMovies (List<MovieInfo> movies); 
-	public void addMovies(MovieInfo movies);
+	public List<Movies> getMovies();
+	public void setMovies (List<Movies> movies); 
+	public void addMovies(Movies movies);
+	public Movies findSelect(int find);
+	public void editMovies(Movies movies, int find);
+	public void delete(int find);
 }

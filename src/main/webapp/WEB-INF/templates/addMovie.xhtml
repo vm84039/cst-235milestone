@@ -15,7 +15,7 @@
         <td>Title:</td>
         <td>
           <h:inputText label="Title"
-                       id="title" value="#{movieInfo.title}"
+                       id="title" value="#{movies.title}"
                        required="true"/>
         </td>
         <td><h:message for="title" style="color: red"/></td>
@@ -24,7 +24,7 @@
         <td>Year:</td>
         <td>
           <h:inputText label="Year"
-                       id="year" value="#{movieInfo.year}"
+                       id="year" value="#{movies.year}"
                        required="true">
                        <f:convertNumber integerOnly="true" type="number"/></h:inputText>
         </td>
@@ -34,7 +34,7 @@
         <td>Genre:</td>
         <td>
           <h:inputText label="Genre"
-                       id="genre" value="#{movieInfo.genre}"
+                       id="genre" value="#{movies.genre}"
                        required="false"/>
         </td>
         <td><h:message for="genre" style="color: red"/></td>
@@ -43,7 +43,7 @@
         <td>Lead:</td>
         <td>
           <h:inputText label="Lead"
-                       id="lead" value="#{movieInfo.lead}"
+                       id="lead" value="#{movies.lead}"
                        required="true"/>
         </td>
         <td><h:message for="lead" style="color: red"/></td>
@@ -52,7 +52,7 @@
         <td>Studio:</td>
         <td>
           <h:inputText label="Studio"
-                       id="studio" value="#{movieInfo.studio}"
+                       id="studio" value="#{movies.studio}"
                        required="false"/>
         </td>
         <td><h:message for="studio" style="color: red"/></td>
@@ -61,7 +61,7 @@
         <td>Director:</td>
         <td>
           <h:inputText label="Director"
-                       id="director" value="#{movieInfo.director}"
+                       id="director" value="#{movies.director}"
                        required="false"/>
         </td>
         <td><h:message for="director" style="color: red"/></td>
@@ -70,7 +70,7 @@
         <td>Length:</td>
         <td>
           <h:inputText label="Length"
-                       id="length" value="#{movieInfo.length}"
+                       id="length" value="#{movies.length}"
                        required="true">
                        <f:convertNumber integerOnly="true" type="number"/></h:inputText>
         </td>
@@ -80,7 +80,7 @@
         <td>Rental:</td>
         <td>
           <h:inputText label="Rental"
-                       id="rental" value="#{movieInfo.rental}"
+                       id="rental" value="#{movies.rental}"
                        required="true"/>
         </td>
         <td><h:message for="rental" style="color: red"/></td>
@@ -89,7 +89,7 @@
         <td>Cost:</td>
         <td>
           <h:inputText label="Cost"
-                       id="cost" value="#{movieInfo.cost}"
+                       id="cost" value="#{movies.cost}"
                        required="true" />
         </td>
         <td><h:message for="cost" style="color: red"/></td>
@@ -98,14 +98,14 @@
         <td>Revenue:</td>
         <td>
           <h:inputText label="Revenue"
-                       id="revenue" value="#{movieInfo.revenue}"
+                       id="revenue" value="#{movies.revenue}"
                        required="true" />
         </td>
         <td><h:message for="revenue" style="color: red"/></td>
       </tr>
 	
       		</table>
-      		<h:commandButton id="submit" value="Submit" action="#{formController.addMovieSubmit(movieInfo)}"></h:commandButton>
+      		<h:commandButton id="submit" value="Submit" action="#{formController.addMovieSubmit(movies)}"></h:commandButton>
       		</h:form>
 		<br />
 	</ui:composition>  

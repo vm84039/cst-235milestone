@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 @ManagedBean
 @ViewScoped 
 
-public class MovieInfo {
+public class Movies {
 	
 	@NotNull() @Size(min=1, max=30)
 	private String title;
@@ -59,7 +59,7 @@ public class MovieInfo {
 
 	
 	
-	public MovieInfo() {
+	public Movies() {
 		this.title = "";
 		this.year = 1900; 
 		this.genre= ""; 
@@ -74,7 +74,7 @@ public class MovieInfo {
 		this.intRevenue= new BigInteger(revenue);
 	}
 	
-	public MovieInfo(String title, int year, String genre, String lead, String studio, String director, int length, float rental,  String cost, String revenue) {
+	public Movies(String title, int year, String genre, String lead, String studio, String director, int length, float rental,  String cost, String revenue) {
 		this.title = title;
 		this.year = year; 
 		this.genre=genre; 

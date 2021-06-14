@@ -12,72 +12,72 @@
 <h:body>
 
 	<h2>Movie Inventory<br></br></h2>
-	
-<h:dataTable value = "#{formController.movieService.movies}" var = "o"
-    			styleClass = "movie-table"
-    			headerClass = "movie-table-header"
-    			rowClasses = "movie-table-odd-row,movie-table-even-row">
-   
-   <h:column>    				
-      <f:facet name = "header">Movie ID</f:facet>    				
-      #{o.movieID}
-   </h:column>
-   <h:column>    				
-      <f:facet name = "header">Movie Title</f:facet>    				
-      #{o.title}
-   </h:column>
-   
-   <h:column>
-      <f:facet name = "header">Release Year</f:facet>
-      #{o.year}
-   </h:column>
-   
-   <h:column>
-      <f:facet name = "header">Movie Genre</f:facet>
-      #{o.genre}
-   </h:column>
-   
-   <h:column>
-      <f:facet name = "header">Lead Actor</f:facet>
-      #{o.lead}
-   </h:column>
-      <h:column>    				
-      <f:facet name = "header">Production Studio</f:facet>    				
-      #{o.studio}
-   </h:column>
-   
-   <h:column>
-      <f:facet name = "header">Director</f:facet>
-      #{o.director}
-   </h:column>
-   
-   <h:column>
-      <f:facet name = "header">Run Time (in minutes)</f:facet>
-      #{o.length}
-   </h:column>
-   
-   <h:column>
-      <f:facet name = "header">Rental Cost</f:facet>
-      <h:outputText value =	"#{o.rental}">
-      <f:convertNumber currencySymbol="$" type="currency"/> 
-      </h:outputText>
-   </h:column>
-   <h:column>
-      <f:facet name = "header">Production Cost</f:facet>
-      <h:outputText value =	"$#{o.cost}">
-      <f:convertNumber currencySymbol="$" type="currency"/> 
-      </h:outputText>
-   </h:column>
-   
-   <h:column>
-      <f:facet name = "header">Box Office Revenue</f:facet> 
-      <h:outputText value =	"$ #{o.revenue}">
-      <f:convertNumber currencySymbol="$" type="currency"/> 
-      </h:outputText>
-   </h:column>   
-</h:dataTable>
-<br /><br />
-	<h:button value="Add Movie" outcome ="AddMovie"></h:button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<h:button value="Edit Movie" outcome ="EditMovie"></h:button>
+	<h:dataTable value = "#{formController.movieService.movies}" var = "o"
+	    			styleClass = "movie-table"
+	    			headerClass = "movie-table-header"
+	    			rowClasses = "movie-table-odd-row,movie-table-even-row">
+		   <h:column>    				
+		      <f:facet name = "header">Movie ID</f:facet>    				
+		      #{o.movieID}
+		   </h:column>
+		   <h:column>    				
+		      <f:facet name = "header">Movie Title</f:facet>    				
+		      #{o.title}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Release Year</f:facet>
+		      #{o.year}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Movie Genre</f:facet>
+		      #{o.genre}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Lead Actor</f:facet>
+		      #{o.lead}
+		   </h:column>
+		      <h:column>    				
+		      <f:facet name = "header">Production Studio</f:facet>    				
+		      #{o.studio}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Director</f:facet>
+		      #{o.director}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Run Time (in minutes)</f:facet>
+		      #{o.length}
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Rental Cost</f:facet>
+		      <h:outputText value =	"#{o.rental}">
+		      <f:convertNumber currencySymbol="$" type="currency"/> 
+		      </h:outputText>
+		   </h:column>
+		   <h:column>
+		      <f:facet name = "header">Production Cost</f:facet>
+		      <h:outputText value =	"$#{o.cost}">
+		      <f:convertNumber currencySymbol="$" type="currency"/> 
+		      </h:outputText>
+		   </h:column>
+		   
+		   <h:column>
+		      <f:facet name = "header">Box Office Revenue</f:facet> 
+		      <h:outputText value =	"$ #{o.revenue}">
+		      <f:convertNumber currencySymbol="$" type="currency"/> 
+		      </h:outputText>
+		   </h:column>   
+	</h:dataTable>
+	<br />
+	<h:button value="Add Movie" outcome ="AddMovie"></h:button>	&nbsp;&nbsp;&nbsp;&nbsp;<h:button value="Edit Movie" outcome ="EditMovie"></h:button>
+	&nbsp;&nbsp;&nbsp;&nbsp;<h:button value="Delete Movie" outcome ="DeleteMovie"></h:button><br />	
+	<p> YOU MUST HAVE THE MOVIEID TO EDIT OR DELETE A MOVIE FROM THE DATABASE</p>
+
 </h:body>
 </html> 

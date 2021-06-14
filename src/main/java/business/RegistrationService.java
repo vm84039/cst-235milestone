@@ -6,8 +6,6 @@ import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
-
 import beans.User;
 import data.UserDataService;
 
