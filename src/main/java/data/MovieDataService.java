@@ -94,7 +94,7 @@ public class MovieDataService implements MovieAccessInterface {
 	}
 
 	@Override
-	public void insert(Movies movies) {
+	public Movies insert(Movies movies) {
 		String url = "jdbc:mysql://localhost:3306/movieinfo";
 		String username = "root";
 		String password = "8160Prest!";
@@ -129,6 +129,7 @@ public class MovieDataService implements MovieAccessInterface {
 		                    { userId = rs.getInt(1); }
 					}		          
 			}
+			
 		}
 		catch (SQLException e)
 		{
@@ -143,6 +144,7 @@ public class MovieDataService implements MovieAccessInterface {
                 System.out.println(e.getMessage());
             }
 		}
+		return movies;
 	}		
 	
 	@Override

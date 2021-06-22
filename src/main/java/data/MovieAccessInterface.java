@@ -8,7 +8,7 @@ import beans.Movies;
 public interface MovieAccessInterface {
 	public List<Movies> findAll();
 	public void editSelect(Movies movies, int find);
-	public void insert(Movies movies);
+	public Movies insert(Movies movies);
 	public void deleteSelect(int find);
 	public Movies findSelect(int find);
 }
