@@ -6,7 +6,10 @@ import java.util.List;
 
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -26,10 +29,12 @@ public class MovieRestService {
 	public List<Movies> getMoviesAsJson()
 	{
 		return service.getMovies();
-	}
-	@GET
-	@Path("/getjson")
-	@Produces(MediaType.APPLICATION_JSON)
+	}  
+	
+	@POST
+	@Path("/putjson")
+	@Produces( MediaType.APPLICATION_JSON )
+	@Consumes( MediaType.APPLICATION_FORM_URLENCODED )
 	public Movies addMoviesAsJson()
 	{
 		return service.returnAdd();
@@ -47,9 +52,10 @@ public class MovieRestService {
 		System.out.println("XML : " + Arrays.toString(array));
 		return array;
 	}
-	@GET
-	@Path("/getjson")
-	@Produces(MediaType.APPLICATION_JSON)
+	@POST
+	@Path("/putxml")
+	@Produces( MediaType.APPLICATION_XML )
+	@Consumes( MediaType.APPLICATION_FORM_URLENCODED )
 	public Movies addMoviesAsXml()
 	{
 		return service.returnAdd();
