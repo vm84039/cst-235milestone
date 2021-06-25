@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">  
 <h:head>
 	<title>Movie Inventory</title>
 	<h:outputStylesheet library="css" name="table-style.css"  />
@@ -12,72 +13,100 @@
 <h:body>
 
 	<h2>Movie Inventory<br></br></h2>
-	<h:dataTable value = "#{formController.movieService.movies}" var = "o"
+	<h:form>
+	<h:dataTable value = "#{movies.movies}" var = "o"
 	    			styleClass = "movie-table"
 	    			headerClass = "movie-table-header"
 	    			rowClasses = "movie-table-odd-row,movie-table-even-row">
 		   <h:column>    				
-		      <f:facet name = "header">Movie ID</f:facet>    				
-		      #{o.movieID}
+		      	<f:facet name = "header">Movie ID</f:facet>    
+    			<h:outputText value="#{o.movieID}" rendered="true" />				
+
 		   </h:column>
 		   <h:column>    				
-		      <f:facet name = "header">Movie Title</f:facet>    				
-		      #{o.title}
+		      <f:facet name = "header">Movie Title</f:facet>    	
+		     	<h:inputText value="#{o.title}" size="20" rendered="#{o.editable}" />
+    			<h:outputText value="#{o.title}" rendered="#{not o.editable}" />				
 		   </h:column>
-		   
+		  
 		   <h:column>
 		      <f:facet name = "header">Release Year</f:facet>
-		      #{o.year}
+		     	<h:inputText value="#{o.year}" size="10" rendered="#{o.editable}" />
+    			<h:outputText value="#{o.year}" rendered="#{not o.editable}" />			      
 		   </h:column>
 		   
 		   <h:column>
 		      <f:facet name = "header">Movie Genre</f:facet>
-		      #{o.genre}
+		     	<h:inputText value="#{o.genre}" size="15" rendered="#{o.editable}" />
+    			<h:outputText value="#{o.genre}" rendered="#{not o.editable}" />			      
 		   </h:column>
 		   
 		   <h:column>
 		      <f:facet name = "header">Lead Actor</f:facet>
-		      #{o.lead}
+		     	<h:inputText value="#{o.lead}" size="20" rendered="#{o.editable}" />
+    			<h:outputText value="#{o.lead}" rendered="#{not o.editable}" />			      
 		   </h:column>
 		      <h:column>    				
 		      <f:facet name = "header">Production Studio</f:facet>    				
-		      #{o.studio}
+		     	<h:inputText value="#{o.studio}" size="20" rendered="#{o.editable}" />
+    			<h:outputText value="#{o.studio}" rendered="#{not o.editable}" />			      
 		   </h:column>
 		   
 		   <h:column>
 		      <f:facet name = "header">Director</f:facet>
-		      #{o.director}
+		     	<h:inputText value="#{o.director}" size="20" rendered="#{o.editable}" />
+    			<h:outputText value="#{o.director}" rendered="#{not o.editable}" />			      
 		   </h:column>
 		   
 		   <h:column>
 		      <f:facet name = "header">Run Time (in minutes)</f:facet>
-		      #{o.length}
+		     	<h:inputText value="#{o.length}" size="10" rendered="#{o.editable}" />
+    			<h:outputText value="#{o.length}" rendered="#{not o.editable}" />			      
 		   </h:column>
 		   
 		   <h:column>
 		      <f:facet name = "header">Rental Cost</f:facet>
-		      <h:outputText value =	"#{o.rental}">
-		      <f:convertNumber currencySymbol="$" type="currency"/> 
-		      </h:outputText>
+		     	<h:inputText value="#{o.rental}" size="10" rendered="#{o.editable}" />
+    			<h:outputText value="#{o.rental}" rendered="#{not o.editable}" />			      
+ 
 		   </h:column>
+		   
 		   <h:column>
 		      <f:facet name = "header">Production Cost</f:facet>
-		      <h:outputText value =	"$#{o.cost}">
-		      <f:convertNumber currencySymbol="$" type="currency"/> 
-		      </h:outputText>
+		     	<h:inputText value="#{o.cost}" size="15" rendered="#{o.editable}" />
+    			<h:outputText value="$#{o.cost}" rendered="#{not o.editable}" />			      
 		   </h:column>
 		   
 		   <h:column>
 		      <f:facet name = "header">Box Office Revenue</f:facet> 
-		      <h:outputText value =	"$ #{o.revenue}">
-		      <f:convertNumber currencySymbol="$" type="currency"/> 
-		      </h:outputText>
-		   </h:column>   
+		     	<h:inputText value="#{o.revenue}" size="15" rendered="#{o.editable}" />
+    			<h:outputText value="$#{o.revenue}" rendered="#{not o.editable}" />			      
+		   </h:column>
+    	     <h:column>
+    				
+    		<f:facet name="header">Action</f:facet>
+    				
+    		<h:commandLink value="Edit" action="#{movies.editAction(o)}" 
+                                       rendered="#{not o.editable}" />
+    				
+    	     </h:column>
+    	    <h:column>
+    				
+    		<f:facet name="header">Action</f:facet>
+    				
+    		<h:commandLink value="Delete" action="#{movies.deleteAction(o)}" 
+                                       rendered="#{not o.editable}" /> 
+            </h:column>
+           
+
+		      
 	</h:dataTable>
 	<br />
-	<h:button value="Add Movie" outcome ="AddMovie"></h:button>	&nbsp;&nbsp;&nbsp;&nbsp;<h:button value="Edit Movie" outcome ="EditMovie"></h:button>
-	&nbsp;&nbsp;&nbsp;&nbsp;<h:button value="Delete Movie" outcome ="DeleteMovie"></h:button><br />	
-	<p> YOU MUST HAVE THE MOVIEID TO EDIT OR DELETE A MOVIE FROM THE DATABASE</p>
+	<h:commandButton value="Save Edits" action="#{movies.saveAction}" /><br /> <br />
+	<h:button value="Add Movie" outcome ="AddMovie"></h:button>	
 
+	</h:form>
 </h:body>
 </html> 
+ 
+

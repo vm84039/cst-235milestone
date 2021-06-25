@@ -7,10 +7,22 @@
 
 <h:head> <h:outputStylesheet name = "css/styles.css"  /> </h:head> 
 <body> 
+	
 	<ui:composition>   
-         <br /><br />
-         <h1>Old school Movie Rental</h1>
-         <br /><br />
+         
+		<table id = "links">
+		<tr>
+        	<th colspan="4">	<h1>Old school Movie Rental</h1> </th>
+        </tr> 
+        <tr>
+ 			<td><h:link outcome="index" value="Home" /></td>
+ 			<td><h:link outcome="CustomerLogin" value="Customer Login" /></td>
+ 			<td><h:link outcome="CustomerRegistration" value="Customer Registration" /></td>
+  			<td><h:form> <h:commandLink value="Movie Inventory" 
+  				action="#{formController.loadDatabase()}" rendered="true" /> </h:form></td>
+         </tr>
+         </table>
       </ui:composition>	
+    
 </body> 
 </html>

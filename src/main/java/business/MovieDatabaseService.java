@@ -15,8 +15,7 @@ import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
 import javax.jms.Queue;
 import javax.jms.Session;
-
-import beans.Movies;
+import beans.MovieBean.Movies;
 import data.MovieDataService;
 
 /* Session Bean implementation class RegistrationService
@@ -64,8 +63,8 @@ public class MovieDatabaseService implements MovieDatabaseServiceInterface {
 		return temp;
 	}
 	@Override
-	public void editMovies(Movies movies, int find) {
-		service.editSelect(movies, find);
+	public void editMovies(Movies movies) {
+		service.editSelect(movies);
 	}
 
 	@Override
@@ -76,8 +75,8 @@ public class MovieDatabaseService implements MovieDatabaseServiceInterface {
 	}
 
 	@Override
-	public void delete(int find) {
-		service.deleteSelect(find);	
+	public void deleteMovie(Movies movies) {
+		service.deleteSelect(movies);	
 	}
 
 	@Override

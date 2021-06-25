@@ -1,5 +1,8 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -8,7 +11,8 @@ import javax.inject.Inject;
 
 import beans.Edit;
 import beans.Login;
-import beans.Movies;
+import beans.MovieBean;
+import beans.MovieBean.Movies;
 import beans.User;
 import business.LoginServiceInterface;
 import business.MovieDatabaseService;
@@ -27,10 +31,16 @@ public class formController {
 	RegistrationServiceInterface register;
 	@Inject
 	MovieDatabaseServiceInterface movieService;
-	public static Edit id = new Edit();
-	public static Edit deleteId = new Edit();
-	public static Movies deleteMovie = new Movies();
+	MovieBean movieList = new MovieBean();
+
 	
+
+	public String loadDatabase() 
+	{
+		movieList.init();
+		movieList.printList();
+		return "MovieDatabase.xhtml";
+	}
 	public String registrationSubmit(User user) 
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -63,55 +73,22 @@ public class formController {
 		movieService.addMovies(movies);
 		return "MovieCreated.xhtml";
 	}
-	public String editMovieSubmit(Movies movies) 
-	{
-			FacesContext context = FacesContext.getCurrentInstance();
-			//put the movies object into the POST request
-			movies = context.getApplication().evaluateExpressionGet(context, "#{movies}", Movies.class);
-			FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("movies", movies);
-			movieService.editMovies(movies, id.getID());
-			return "MovieDatabase.xhtml";
-	}
-	public String deleteMovieSubmit(Edit edit) 
+
+	/*public String deleteMovieSubmit(Edit edit) 
 	{
 			movieService.delete(id.getID());
 			return "MovieDatabase.xhtml";
-	}
-	public String editMovie(Edit edit) 
-	{
-		Movies select = new Movies();
-		FacesContext context = FacesContext.getCurrentInstance();
-		//put the movies object into the POST request
-		edit = context.getApplication().evaluateExpressionGet(context, "#{edit}", Edit.class);
-		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("edit", edit);
-		id.setID(edit.getID());
-		select = movieService.findSelect(edit.getID());
-		if (select.getMovieID() != 0)
-		{
-			return "EditMovieForm.xhtml";
-		}
-		else 
-		{
-				return "EditMovieFailed.xhtml";
-		}
-	}
-	public String deleteMovie(Edit edit) 
+	}*/
+
+	public String deleteMovie(Movies movies) 
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
 		//put the movies object into the POST request
-		edit = context.getApplication().evaluateExpressionGet(context, "#{edit}", Edit.class);
-		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("edit", edit);
-		deleteId.setID(edit.getID());
-		deleteMovie = movieService.findSelect(edit.getID());
-		edit.setTitle(deleteMovie.getTitle());
-		if (deleteMovie.getMovieID() != 0)
-		{
-			return "DeleteMovieForm.xhtml";
-		}
-		else 
-		{
-				return "EditMovieFailed.xhtml";
-		}
+		movies = context.getApplication().evaluateExpressionGet(context, "#{movies}", Movies.class);
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("movies", movies);
+		movieService.deleteMovie(movies);
+		return "MovieDatabase.xhtml";
+
 	}
 
 	public MovieDatabaseServiceInterface getMovieService()

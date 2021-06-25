@@ -7,8 +7,9 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
+import beans.MovieBean.Movies;
 
-import beans.Movies;
+
 
 /**
  * Message-Driven Bean implementation class for: MovieMessageService

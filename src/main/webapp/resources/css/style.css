@@ -29,6 +29,23 @@ img
 	background:#333300;
 }
 
+table
+{
+	width: 100%;
+	
+}
+th
+{
+	background:#333300;
+	
+}
+td
+{
+	
+	background: white;
+	font-size: 12px;
+}
+
 ul#list-nav 
 {
   margin:0px;

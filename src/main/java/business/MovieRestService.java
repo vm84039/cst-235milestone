@@ -3,7 +3,6 @@ package business;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -13,8 +12,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
-import beans.Movies;
+import beans.MovieBean.Movies;
 
 @RequestScoped
 @Path("/movies")
@@ -26,7 +24,7 @@ public class MovieRestService {
 	@GET
 	@Path("/getjson")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Movies> getMoviesAsJson()
+	public List<Movies> getMovieBeanAsJson()
 	{
 		return service.getMovies();
 	}  

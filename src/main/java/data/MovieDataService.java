@@ -8,9 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.ejb.Stateless;
-import beans.Movies;
+import beans.MovieBean.Movies;
 
 @Stateless
 public class MovieDataService implements MovieAccessInterface {
@@ -58,9 +57,9 @@ public class MovieDataService implements MovieAccessInterface {
 	}
 
 	@Override
-	public void editSelect(Movies select, int find) {
+	public void editSelect(Movies select) {
 
-		String url = "jdbc:mysql://localhost:3306/Movies";
+		String url = "jdbc:mysql://localhost:3306/movieinfo";
 		String username = "root";
 		String password = "8160Prest!";
 		Connection conn = null;
@@ -75,7 +74,7 @@ public class MovieDataService implements MovieAccessInterface {
 				+ ", RENTAL = " + select.getRental()
 				+ ", COST = '" + select.getCost() + "'"
 				+ ", REVENUE =' " + select.getRevenue() + "'"
-				+ "WHERE ID = " +find;
+				+ "WHERE ID = " + select.getMovieID();
 		System.out.println(update);
 	
 		try
@@ -148,18 +147,18 @@ public class MovieDataService implements MovieAccessInterface {
 	}		
 	
 	@Override
-	public void deleteSelect(int find) {
+	public void deleteSelect(Movies movies) {
 
-		String url = "jdbc:mysql://localhost:3306/Movies";
+		String url = "jdbc:mysql://localhost:3306/Movieinfo";
 		String username = "root";
 		String password = "8160Prest!";
 		Connection conn = null;
-		String update = "DELETE FROM MovieInfo.Movies WHERE ID = " + find;
+		String update = "DELETE FROM MovieInfo.Movies WHERE ID = " + movies.getMovieID();
 		System.out.println(update);
 	
 		try
 		{
-			System.out.println("Entering Delet Movie Database");
+			System.out.println("Entering Delete Movie Database.  Movie ID is " + movies.getMovieID() );
 			conn = DriverManager.getConnection(url, username, password );
 			if (conn != null) {System.out.println("findSelect Connection Success");} else {System.out.println("findSelect Connection failure!!");}
 			Statement statement = conn.createStatement();
