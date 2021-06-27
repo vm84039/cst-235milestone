@@ -99,7 +99,15 @@ public class MovieBean implements Serializable {
         	movie.setEditable(false);
         }
         //return to current page
-        return null;
+        return "MovieDatabase.xhtml";
+    }
+    public String cancelAction() {
+    	//get all existing value but set "editable" to false 
+        for (Movies movie  :  movies){
+        	movie.setEditable(false);
+        }
+        //return to current page
+        return "MovieDatabase.xhtml";
         
     }
     
@@ -107,7 +115,7 @@ public class MovieBean implements Serializable {
     public String editAction(Movies movie) {
         
         movie.setEditable(true);
-        return null;
+        return "EditDatabase.xhtml";
     }
     public String deleteAction(Movies movie) {
         
