@@ -12,9 +12,16 @@
 <h:body>
     <h:panelGroup id="page" layout="block">
     	<h:panelGroup id="header" layout="block">
-    		<ui:insert name = "header" >
-      	     	<ui:include src = "/WEB-INF/templates/header.xhtml" />
-   			</ui:insert>
+		<table id = "links">
+		<tr>
+        	<th colspan="4">	<h1>Old school Movie Rental</h1> </th>
+        </tr> 
+        <tr>
+ 			<td><h:link outcome="CustomerLogin" value="Login" /></td>
+ 			<td><h:link outcome="CustomerRegistration" value="Registration" /></td>
+
+         </tr>
+         </table>
         </h:panelGroup>
 
    		 <div id="container">     

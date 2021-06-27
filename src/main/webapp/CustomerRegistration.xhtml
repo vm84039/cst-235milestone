@@ -14,15 +14,22 @@
 
     <h:panelGroup id="page" layout="block">
     	<h:panelGroup id="header" layout="block">
-    		<ui:insert name = "header" >
-      	     	<ui:include src = "/WEB-INF/templates/header.xhtml" />
-   			</ui:insert>
+		<table id = "links">
+		<tr>
+        	<th colspan="4">	<h1>Old school Movie Rental</h1> </th>
+        </tr> 
+        <tr>
+ 			
+
+         </tr>
+         </table>
         </h:panelGroup>
         <h2>Customer Registration</h2>
 		<h:panelGroup id="registration" layout="block">
 	      	<ui:insert name = "registration" >
             	<ui:include src = "/WEB-INF/templates/registration.xhtml" />
          	</ui:insert>
+         	<h:button outcome="index" value="Back" />
          </h:panelGroup>
 
     	<h:panelGroup id="footer" layout="block">

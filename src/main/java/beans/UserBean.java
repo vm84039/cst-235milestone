@@ -18,10 +18,11 @@ private static final long serialVersionUID = 1L;
     
     public List<User> users;  
 
-    public List<User> getMovies() 
+    public List<User> getUsers() 
     {
     	users = new ArrayList<User>();
 		return users;
     };
+    
     
 }

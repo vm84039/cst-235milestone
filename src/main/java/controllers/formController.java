@@ -1,21 +1,15 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-
-import beans.Edit;
 import beans.Login;
 import beans.MovieBean;
 import beans.MovieBean.Movies;
 import beans.User;
 import business.LoginServiceInterface;
-import business.MovieDatabaseService;
 import business.MovieDatabaseServiceInterface;
 import business.RegistrationServiceInterface;
 
@@ -32,13 +26,13 @@ public class formController {
 	@Inject
 	MovieDatabaseServiceInterface movieService;
 	MovieBean movieList = new MovieBean();
+	
 
 	
 
 	public String loadDatabase() 
 	{
 		movieList.init();
-		movieList.printList();
 		return "MovieDatabase.xhtml";
 	}
 	public String registrationSubmit(User user) 
@@ -74,11 +68,6 @@ public class formController {
 		return "MovieCreated.xhtml";
 	}
 
-	/*public String deleteMovieSubmit(Edit edit) 
-	{
-			movieService.delete(id.getID());
-			return "MovieDatabase.xhtml";
-	}*/
 
 	public String deleteMovie(Movies movies) 
 	{
@@ -91,13 +80,6 @@ public class formController {
 
 	}
 
-	public MovieDatabaseServiceInterface getMovieService()
-	{
-		movieService = new MovieDatabaseService();
-		movieService.getMovies();
-		return movieService;
-	}
-	
 
 	
 	

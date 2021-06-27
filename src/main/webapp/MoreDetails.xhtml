@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">  
+
+<h:head>
+	<h:outputStylesheet name="css/style.css" />
+</h:head> 
+<h:body>
+    <h:panelGroup id="page" layout="block">
+    	<h:panelGroup id="header" layout="block">
+    		<ui:insert name = "header" >
+      	     	<ui:include src = "/WEB-INF/templates/header.xhtml" />
+   			</ui:insert>
+        </h:panelGroup>
+        
+
+<h:form>
+<br /><br />  	
+    	
+     	<h1 id="details">#{movies.title} #{movies.year}</h1> 
+	     <div id="row" >MovieID</div>
+	     <div id = "column">#{movies.movieID}</div>  
+	     <div id="row" >Movie Title</div>
+	     <div id = "column">#{movies.title}</div>  	      	
+	     <div id="row" >Release Year</div>
+	     <div id = "column">#{movies.year}</div>    	
+	     <div id="row" >Genre</div>
+	     <div id = "column">#{movies.genre}</div>    	
+	     <div id="row" >Lead Actor</div>
+	     <div id = "column">#{movies.lead}</div>    	
+	     <div id="row" >Movie Studio</div>
+	     <div id = "column">#{movies.studio}</div>    	
+	     <div id="row" >Director</div>
+	     <div id = "column">#{movies.director}</div>    	
+	     <div id="row" >Movie Length</div>
+	     <div id = "column">#{movies.length} minutes running time</div>    	
+	      <div id="row" >Rental Cost</div>
+	      <div id = "column"> 	<h:outputText value = "#{movies.rental}">
+                  	<f:convertNumber currencySymbol = "$" type = "currency" />
+               </h:outputText></div>    	
+	     <div id="row" >Production Cost</div>
+	     <div id = "column">$#{movies.cost}</div>    	
+	     <div id="row" >Movie Revenue</div>
+	     <div id = "column">$#{movies.revenue}</div>    	
+
+     </h:form>
+     <br />
+     <h:button  value="Back" outcome= "MovieDatabase.xhtml" />
+
+	</h:panelGroup>  
+</h:body>
+</html>

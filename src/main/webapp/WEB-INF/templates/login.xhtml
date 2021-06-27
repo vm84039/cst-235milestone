@@ -14,10 +14,11 @@
 			Username:<h:inputText id= "email" value="#{log.emailAddress}"/> &nbsp;<h:message for="email" style="color: red"/>
 					<br></br>
 					<br></br>
-			Password:<h:inputText id = "password" value="#{log.password}"/> &nbsp;<h:message for="password" style="color: red"/>
+			Password:<h:inputSecret id = "password" value="#{log.password}"/> &nbsp;<h:message for="password" style="color: red"/>
 					<br></br>
 					<br></br>
-			<h:commandButton id="submit" value="Submit" action="#{formController.Authenticate(log)}"></h:commandButton>
+			<h:commandButton id="submit" value="Submit" action="#{formController.Authenticate(log)}"></h:commandButton><br /><br />
+			<h:button outcome="index" value="Back" />
 		   </h:form>
       </ui:composition>	
 </h:body> 

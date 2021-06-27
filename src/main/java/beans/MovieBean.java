@@ -1,19 +1,12 @@
 package beans;
 
 import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -34,7 +27,7 @@ public class MovieBean implements Serializable {
     @Inject
  	MovieDatabaseServiceInterface movieService = new MovieDatabaseService();
 	private List<Movies> movies;
-
+	
 
 	@NotNull() @Size(min=1, max=30)
 	String title;
@@ -53,9 +46,24 @@ public class MovieBean implements Serializable {
 	String revenue;
 	boolean editable;
 	boolean delete;
+	private int movieID;
+	boolean select;
+	int intCost;
+	int intRevenue;
+	
 	
  
     
+
+	public void setIntRevenue() {
+		
+	}
+	public boolean isSelect() {
+		return select;
+	}
+	public void setSelect(boolean select) {
+		this.select = select;
+	}
 	@PostConstruct 
 	public void init() 
 	{
@@ -95,6 +103,7 @@ public class MovieBean implements Serializable {
         
     }
     
+    
     public String editAction(Movies movie) {
         
         movie.setEditable(true);
@@ -116,6 +125,28 @@ public class MovieBean implements Serializable {
         }
         return "MovieDatabase.xhtml";
     }
+    public String selectAction(Movies movie) {
+    	
+    	this.title=movie.getTitle();
+    	this.year=movie.getYear();
+    	this.genre=movie.getGenre();
+    	this.lead=movie.getLead();
+    	this.studio=movie.getStudio();
+    	this.director=movie.getDirector();
+    	this.length=movie.getLength();
+    	this.studio=movie.getStudio();
+    	this.director=movie.getDirector();
+    	this.length=movie.getLength();
+    	this.rental=movie.getRental();
+    	this.cost=movie.getCost();
+    	this.revenue=movie.getRevenue();
+    	this.movieID=movie.getMovieID();
+    	
+    	return "MoreDetails.xhtml";
+    }
+    
+    
+
 
     	
     public String addAction() {
@@ -185,6 +216,19 @@ public class MovieBean implements Serializable {
 	public void setRevenue(String revenue) {
 		this.revenue = revenue;
 	}
+	
+	public int getIntCost() {
+		return intCost;
+	}
+	public void setIntCost(int intCost) {
+		this.intCost = intCost;
+	}
+	public int getIntRevenue() {
+		return intRevenue;
+	}
+	public void setIntRevenue(int intRevenue) {
+		this.intRevenue = intRevenue;
+	}
 	public boolean isEditable() {
 		return editable;
 	}
@@ -197,9 +241,23 @@ public class MovieBean implements Serializable {
 	public void setDelete(boolean delete) {
 		this.delete = delete;
 	}
+	
+	
 
 
-	//  @XmlRootElement(name = "Movies") 
+
+	public int getMovieID() {
+		return movieID;
+	}
+	public void setMovieID(int movieID) {
+		this.movieID = movieID;
+	}
+
+
+
+
+		@ManagedBean(name = "info")
+	  @XmlRootElement(name = "Movies") 
     public static class Movies implements Serializable {
     	
 		private static final long serialVersionUID = 1L;
@@ -218,12 +276,13 @@ public class MovieBean implements Serializable {
     	private float rental; 
     	private String cost;
     	private String revenue;
-    	private BigInteger intCost;
-    	private BigInteger intRevenue;
+    	private int intCost;
+    	private int intRevenue;
     	private int movieID;
     	boolean editable;
     	boolean delete;
-    	
+    	boolean select;
+
     	
     	public Movies() {
     		this.title = "";
@@ -236,8 +295,6 @@ public class MovieBean implements Serializable {
     		this.rental=0;  
     		this.cost="0";
     		this.revenue="0";
-    		this.intCost=new BigInteger(cost);
-    		this.intRevenue= new BigInteger(revenue);
     	}
     	
     	public Movies(String title, int year, String genre, String lead, String studio, String director, int length, float rental,  String cost, String revenue) {
@@ -251,29 +308,9 @@ public class MovieBean implements Serializable {
     		this.rental=rental;  
     		this.cost=cost; 
     		this.revenue=revenue;
-    		this.intCost = getBigInt(cost);
-    		this.intRevenue = getBigInt(revenue);
+
     	}
-    	public BigInteger getBigInt(String str)
-    	{
-    		BigInteger num;
-    		boolean numeric= true;
-    		int i=0;
-    		if (str.isEmpty()) 
-    		{ 
-    			num = new BigInteger("0");
-    			return num;
-    		}
-    		while ((numeric !=false) && (i < str.length()))
-    		{
-    			char c = str.charAt(i);
-    			numeric = Character.isDigit(c);
-    			i++;
-    		}
-    		if (numeric == true) { num = new BigInteger(str);}
-    		else { num = new BigInteger("0");}
-    		return num;
-    	}
+
     	
     	public String getTitle() {
     		return title;
@@ -389,21 +426,15 @@ public class MovieBean implements Serializable {
     		this.movieID = movieID;
     	}
 
-    	public BigInteger getIntCost() {
+    	public int getIntCost() {
     		return intCost;
     	}
 
-    	public void setIntCost(BigInteger intCost) {
-    		this.intCost = intCost;
-    	}
 
-    	public BigInteger getIntRevenue() {
+    	public int getIntRevenue() {
     		return intRevenue;
     	}
 
-    	public void setIntRevenue(BigInteger intRevenue) {
-    		this.intRevenue = intRevenue;
-    	}
 
 		public boolean isDelete() {
 			return delete;
@@ -412,6 +443,26 @@ public class MovieBean implements Serializable {
 		public void setDelete(boolean delete) {
 			this.delete = delete;
 		}
+
+		public boolean isSelect() {
+			return select;
+		}
+
+		public void setSelect(boolean select) {
+			this.select = select;
+		}
+
+		public void setIntCost(int intCost) {
+			this.intCost = intCost;
+		}
+
+		public void setIntRevenue(int intRevenue) {
+			this.intRevenue = intRevenue;
+		}
+		
+		
+		
+		
 
     	
 

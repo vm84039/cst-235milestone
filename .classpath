@@ -11,7 +11,7 @@
 			<attribute name="owner.project.facets" value="jst.jaxrs;jst.web;jst.jsf"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.25.jar"/>
+	<classpathentry kind="lib" path="C:/Users/vm840/eclipse-workspace/cst-235milestone/src/main/webapp/WEB-INF/lib/mysql-connector-java-8.0.25.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>

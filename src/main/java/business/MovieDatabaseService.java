@@ -68,10 +68,8 @@ public class MovieDatabaseService implements MovieDatabaseServiceInterface {
 	}
 
 	@Override
-	public Movies findSelect(int find) {
-		movie = service.findSelect(find);
-		return movie;
-
+	public void findSelect(Movies movies) {
+		this.movie = movies;
 	}
 
 	@Override

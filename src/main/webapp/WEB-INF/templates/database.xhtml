@@ -46,45 +46,30 @@
 		     	<h:inputText value="#{o.lead}" size="20" rendered="#{o.editable}" />
     			<h:outputText value="#{o.lead}" rendered="#{not o.editable}" />			      
 		   </h:column>
-		      <h:column>    				
-		      <f:facet name = "header">Production Studio</f:facet>    				
-		     	<h:inputText value="#{o.studio}" size="20" rendered="#{o.editable}" />
-    			<h:outputText value="#{o.studio}" rendered="#{not o.editable}" />			      
-		   </h:column>
-		   
-		   <h:column>
-		      <f:facet name = "header">Director</f:facet>
-		     	<h:inputText value="#{o.director}" size="20" rendered="#{o.editable}" />
-    			<h:outputText value="#{o.director}" rendered="#{not o.editable}" />			      
-		   </h:column>
-		   
-		   <h:column>
-		      <f:facet name = "header">Run Time (in minutes)</f:facet>
-		     	<h:inputText value="#{o.length}" size="10" rendered="#{o.editable}" />
-    			<h:outputText value="#{o.length}" rendered="#{not o.editable}" />			      
-		   </h:column>
 		   
 		   <h:column>
 		      <f:facet name = "header">Rental Cost</f:facet>
 		     	<h:inputText value="#{o.rental}" size="10" rendered="#{o.editable}" />
-    			<h:outputText value="#{o.rental}" rendered="#{not o.editable}" />			      
+    			<h:outputText value="#{o.rental}" rendered="#{not o.editable}" >	        	
+                  	<f:convertNumber currencySymbol = "$" type = "currency" />
+               </h:outputText>
+    						      
  
 		   </h:column>
 		   
-		   <h:column>
-		      <f:facet name = "header">Production Cost</f:facet>
-		     	<h:inputText value="#{o.cost}" size="15" rendered="#{o.editable}" />
-    			<h:outputText value="$#{o.cost}" rendered="#{not o.editable}" />			      
-		   </h:column>
-		   
-		   <h:column>
-		      <f:facet name = "header">Box Office Revenue</f:facet> 
-		     	<h:inputText value="#{o.revenue}" size="15" rendered="#{o.editable}" />
-    			<h:outputText value="$#{o.revenue}" rendered="#{not o.editable}" />			      
-		   </h:column>
+    	     
+    	    <h:column>
+    				
+    			<f:facet name="header">Get More Info</f:facet>
+    				
+    			<h:commandLink value="More Info" action="#{movies.selectAction(o)}" 
+                                       rendered="#{not o.editable}" />
+    				
+    	     </h:column>
+    	     
     	     <h:column>
     				
-    		<f:facet name="header">Action</f:facet>
+    		<f:facet name="header">Edit Movie</f:facet>
     				
     		<h:commandLink value="Edit" action="#{movies.editAction(o)}" 
                                        rendered="#{not o.editable}" />
@@ -92,7 +77,7 @@
     	     </h:column>
     	    <h:column>
     				
-    		<f:facet name="header">Action</f:facet>
+    		<f:facet name="header">Delete Movie</f:facet>
     				
     		<h:commandLink value="Delete" action="#{movies.deleteAction(o)}" 
                                        rendered="#{not o.editable}" /> 

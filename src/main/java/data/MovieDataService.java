@@ -100,7 +100,7 @@ public class MovieDataService implements MovieAccessInterface {
 		Connection conn = null;
 		String update = "INSERT INTO  MovieInfo.Movies (TITLE, RYEAR, GENRE, STAR, STUDIO, DIRECTOR, LENGTH, RENTAL, COST, REVENUE) VALUES"
 				+ "(?,?,?,?,?,?,?,?,?,?)";
-		int userId = 0;
+
 		ResultSet rs = null;	
 		try
 		{
@@ -124,12 +124,8 @@ public class MovieDataService implements MovieAccessInterface {
 					if(rowAffected == 1) 
 					{
 		                rs = pstmt.getGeneratedKeys();
-		                if(rs.next())
-		                    { userId = rs.getInt(1); }
 					}		          
-			}
-			
-		}
+			}}
 		catch (SQLException e)
 		{
 			System.out.println("failure!!");

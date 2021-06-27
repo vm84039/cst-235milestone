@@ -5,8 +5,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
-	<title>Old School Movie Rental-Rgistration</title>
-	<h:outputStylesheet name="css/style.css" />
+	<title>Old School Movie Rental-Registration</title>
+	<h:outputStylesheet name="/resources/css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Syncopate" />  
 </h:head>
 
@@ -19,6 +19,7 @@
         </h:panelGroup>
 
 		<p> <br /><br /><br />Thank You #{user.firstName}, you have successfully registered with a Username of #{user.emailAddress}  </p>
+		<h:button outcome="MovieDatabase" value="Continue" />
     	<h:panelGroup id="footer" layout="block">
 	      	<ui:insert name = "footer" >
             	<ui:include src = "/WEB-INF/templates/footer.xhtml" />
